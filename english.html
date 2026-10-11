@@ -1,0 +1,1827 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Английский и котики · ЕГЭ</title>
+<meta name="description" content="Видеоуроки, скрипты и тренировочный тест по английскому языку для подготовки к ЕГЭ.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#A78CEF;      /* основной: на нём только тёмный текст */
+  --accent-dark:#5B3FB5; /* белый текст, ссылки, hover */
+  --accent-soft:#EEE8FC; /* чипы, плашки, выделения */
+  --bg:#FAF8FF;
+  --paper:#FFFFFF;
+  --ink:#231A4A;
+  --muted:#5E5680;       /* вторичный текст, контраст ≥ 5.6:1 */
+  --line:#DDD3F5;
+  --ok:#2E9E6B;  --ok-bg:#E6F6EE;  --ok-ink:#14634A;
+  --bad:#D64550; --bad-bg:#FCE9EB; --bad-ink:#A3202C;
+  --r:22px;
+  --shadow:0 10px 28px -16px rgba(91,63,181,.45);
+  --head:"Rubik","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+img{max-width:100%}
+a{color:var(--accent-dark)}
+h1,h2,h3{font-family:var(--head);line-height:1.2;margin:0}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent-dark);outline-offset:2px;border-radius:10px}
+[hidden]{display:none!important}
+.wrap{width:100%;max-width:1080px;margin-inline:auto;padding-inline:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:14px;border:2px solid transparent;cursor:pointer;
+  font:600 1rem var(--head);text-decoration:none;text-align:center;background:var(--accent-dark);color:#fff;transition:transform .15s,background .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);background:#4A3199;box-shadow:var(--shadow)}
+.btn.soft{background:var(--accent-soft);color:var(--accent-dark)}
+.btn.soft:hover{background:#E2D8FA}
+.btn.accent{background:var(--accent);color:var(--ink)}
+.btn.accent:hover{background:#9778E8}
+.btn.ghost{background:transparent;color:var(--accent-dark);border-color:var(--accent)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- шапка ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(250,248,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;padding:0;text-align:left}
+.brand img{width:46px;height:46px;border-radius:14px;object-fit:cover;flex:none}
+.brand span{font:700 1.05rem/1.1 var(--head);color:var(--accent-dark)}
+.nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav button{background:none;border:0;cursor:pointer;padding:9px 14px;border-radius:12px;font:600 .95rem var(--head);color:var(--ink)}
+.nav button:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.bar .btn{padding:9px 18px;font-size:.95rem}
+
+/* ---------- hero ---------- */
+main{flex:1;padding-block:22px 64px}
+.hero{background:var(--accent);color:var(--ink);border-radius:30px;padding:clamp(24px,5vw,52px);margin-bottom:40px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.22);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.badge{display:inline-block;background:var(--accent-dark);color:#fff;font:600 .9rem var(--head);padding:6px 16px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:clamp(1.9rem,6vw,3.4rem);margin-bottom:14px;text-wrap:balance;overflow-wrap:anywhere}
+.hero h1 em{font-style:normal;background:var(--paper);padding:0 .25em;border-radius:.3em;display:inline-block;transform:rotate(-1.5deg)}
+.hero p{margin:0 0 22px;max-width:36rem;font-size:1.08rem;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--paper);color:var(--accent-dark);border:0;cursor:pointer;padding:8px 16px;border-radius:999px;font:600 .92rem var(--head)}
+.chip:hover{background:var(--accent-soft)}
+
+.sec{margin-bottom:48px}
+.sec>h2{font-size:1.6rem;margin-bottom:6px}
+.sec>.lead{margin:0 0 20px;color:var(--muted)}
+.sec h3{font-size:1.1rem;margin:26px 0 12px;color:var(--accent-dark)}
+
+/* ---------- карточки ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--accent)}
+.ratio{position:relative;aspect-ratio:16/9;background:var(--accent-soft)}
+.ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cbody strong{font:600 1.02rem/1.3 var(--head)}
+.cbody .meta{color:var(--muted);font-size:.9rem}
+.cbody .actions{margin-top:auto;padding-top:6px}
+.cover{aspect-ratio:4/3;object-fit:cover;object-position:top;width:100%;background:var(--accent-soft);display:block;border-bottom:1px solid var(--line)}
+.ftype{display:inline-block;align-self:flex-start;background:var(--accent-soft);color:var(--accent-dark);font:600 .8rem var(--head);padding:3px 10px;border-radius:999px}
+
+.practice{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.big{display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;border:2px solid var(--accent);background:var(--paper);border-radius:26px;padding:26px;transition:transform .18s,box-shadow .18s,background .18s}
+.big:hover{transform:translateY(-4px);box-shadow:var(--shadow);background:var(--accent-soft)}
+.big .t{font:700 1.5rem var(--head)}
+.big .s{color:var(--muted)}
+.big .go{margin-top:6px;background:var(--accent-dark);color:#fff;font:600 .95rem var(--head);padding:8px 18px;border-radius:12px}
+
+footer{border-top:1px solid var(--line);padding-block:24px;background:var(--paper)}
+.foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.foot img{width:40px;height:40px;border-radius:12px;object-fit:cover}
+.foot span{font:600 1rem var(--head)}
+.foot a{margin-left:auto}
+
+/* ---------- тест ---------- */
+.tbar{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:18px}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px;font:600 .98rem var(--head)}
+.score b{color:var(--accent-dark)}
+.bar-out{height:10px;background:var(--accent-soft);border-radius:99px;overflow:hidden}
+.bar-in{height:100%;background:var(--accent-dark);border-radius:99px;transition:width .3s}
+.nums{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.num{min-width:38px;height:38px;border-radius:11px;border:2px solid var(--line);background:var(--paper);cursor:pointer;font:600 .92rem var(--head);padding:0 6px}
+.num:hover{border-color:var(--accent-dark)}
+.num.cur{border-color:var(--accent-dark);box-shadow:0 0 0 3px var(--accent-soft)}
+.num.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok-ink)}
+.num.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad-ink)}
+.num.ok::after{content:" ✓"}
+.num.bad::after{content:" ✗"}
+
+.q{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,3vw,30px)}
+.qhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.qn{background:var(--accent-dark);color:#fff;font:700 1rem var(--head);padding:5px 14px;border-radius:12px}
+.qtype{background:var(--accent-soft);color:var(--accent-dark);font:600 .85rem var(--head);padding:4px 12px;border-radius:999px}
+.qtype.prac{background:#FFF3CF;color:#6B4A00}
+.instr{color:var(--muted);font-size:.95rem;margin:0 0 14px}
+.stem{font:600 1.1rem/1.45 var(--head);margin:0 0 14px}
+.stmts{display:grid;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+.stmts li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 12px}
+.stmts .k{background:var(--accent);color:var(--ink);font:700 .95rem var(--head);border-radius:9px;text-align:center;padding:1px 0}
+.src{border:1px solid var(--line);border-radius:16px;background:var(--bg);padding:14px 18px;margin:0 0 16px}
+.src h4{font:600 1rem var(--head);margin:0 0 8px;color:var(--accent-dark)}
+.src p{margin:0 0 10px}
+.src p:last-child{margin:0}
+details.src>summary{cursor:pointer;font:600 1rem var(--head);color:var(--accent-dark)}
+details.src[open]>summary{margin-bottom:10px}
+.para{display:grid;grid-template-columns:34px 1fr;gap:10px;margin-bottom:10px}
+.para .k{background:var(--accent-dark);color:#fff;font:700 .95rem var(--head);border-radius:9px;text-align:center;height:28px;line-height:28px}
+.gap{display:inline-block;min-width:4.6em;text-align:center;border-bottom:2px solid var(--accent-dark);font:700 .95rem var(--head);color:var(--accent-dark);padding:0 6px;margin-inline:2px}
+.gap.cur{background:var(--accent-soft);border-radius:6px 6px 0 0}
+.root{display:inline-block;background:var(--accent);color:var(--ink);font:700 .78rem var(--head);padding:1px 8px;border-radius:7px;vertical-align:1px;letter-spacing:.03em}
+
+.audio{background:var(--accent-soft);border-radius:16px;padding:14px 16px;margin:0 0 16px}
+.audio audio{width:100%;display:block}
+.audio .note{margin:8px 0 0;font-size:.9rem;color:var(--muted)}
+.audio .ph{margin:0;font-weight:600}
+
+.cells{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 16px}
+.cell{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cell .lab{font:700 .95rem var(--head);color:var(--accent-dark)}
+.cell input{width:48px;height:52px;text-align:center;font:700 1.25rem var(--head);border:2px solid var(--line);border-radius:12px;background:var(--paper);padding:0}
+.cell input:focus{border-color:var(--accent-dark);box-shadow:0 0 0 3px var(--accent-soft);outline:none}
+.cell .fix{font:700 .85rem var(--head);min-height:1.2em}
+.cell.ok input{background:var(--ok-bg);border-color:var(--ok);color:var(--ok-ink)}
+.cell.bad input{background:var(--bad-bg);border-color:var(--bad);color:var(--bad-ink)}
+.cell.ok .fix{color:var(--ok-ink)}
+.cell.bad .fix{color:var(--bad-ink)}
+
+.opts{display:grid;gap:8px;margin:0 0 16px}
+.opt{display:grid;grid-template-columns:auto 34px 1fr auto;gap:10px;align-items:center;border:2px solid var(--line);border-radius:14px;padding:10px 14px;cursor:pointer;background:var(--paper)}
+.opt:hover{border-color:var(--accent)}
+.opt input{width:18px;height:18px;accent-color:var(--accent-dark);margin:0}
+.opt .k{background:var(--accent-soft);color:var(--accent-dark);font:700 .95rem var(--head);border-radius:9px;text-align:center;padding:1px 0}
+.opt.sel{border-color:var(--accent-dark);background:var(--accent-soft)}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok-ink)}
+.opt.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad-ink)}
+.opt.ok::after{content:"✓";font-weight:700}
+.opt.bad::after{content:"✗";font-weight:700}
+.locked .opt{cursor:default}
+
+.wordin{width:100%;max-width:340px;padding:12px 16px;border:2px solid var(--line);border-radius:14px;font:700 1.2rem var(--head);text-transform:uppercase;letter-spacing:.04em;background:var(--paper)}
+.wordin::placeholder{text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted)}
+.wordin:focus{border-color:var(--accent-dark);box-shadow:0 0 0 3px var(--accent-soft);outline:none}
+.wordin.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok-ink)}
+.wordin.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad-ink)}
+.hint{margin:8px 0 0;color:var(--muted);font-size:.9rem}
+.warn{margin:10px 0 0;color:var(--bad-ink);font-weight:700;min-height:1.4em}
+
+.verdict{display:flex;gap:10px;align-items:flex-start;border:2px solid;border-radius:16px;padding:12px 16px;margin:16px 0 12px;font:600 1.02rem var(--head)}
+.verdict.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok-ink)}
+.verdict.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad-ink)}
+.verdict .ic{font-size:1.3rem;line-height:1.2}
+.right{margin:0 0 12px;font-weight:700}
+.right .pair{display:inline-block;background:var(--ok-bg);border:1px solid var(--ok);color:var(--ok-ink);border-radius:9px;padding:1px 9px;margin:2px 4px 2px 0;font-family:var(--head)}
+.expl{background:var(--bg);border-left:5px solid var(--accent);border-radius:12px;padding:12px 16px;margin:0 0 12px}
+.expl h4{margin:0 0 6px;font:600 .95rem var(--head);color:var(--accent-dark)}
+.expl p{margin:0 0 8px}
+.expl p:last-child{margin:0}
+details.script{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;padding:10px 16px;background:var(--paper)}
+details.script summary{cursor:pointer;font:600 1rem var(--head);color:var(--accent-dark)}
+details.script p{margin:8px 0 0}
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+
+/* ---------- итог ---------- */
+.final{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,4vw,40px);text-align:center}
+.final .pts{font:700 clamp(3rem,12vw,5.5rem)/1 var(--head);color:var(--accent-dark);margin:6px 0}
+.final .pts small{font-size:.35em;color:var(--muted);font-weight:600}
+.final .cmt{max-width:34rem;margin:8px auto 20px;font-size:1.1rem;font-weight:600}
+.secs{display:grid;gap:10px;max-width:520px;margin:0 auto 22px;text-align:left}
+.secs .r{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font:600 .95rem var(--head)}
+.secs .bar-out{grid-column:1/-1}
+.final .nums{justify-content:center;margin-bottom:22px}
+.final .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- вторая часть ---------- */
+.p2card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,3vw,30px);margin-bottom:18px}
+.p2card textarea{width:100%;min-height:200px;border:2px solid var(--line);border-radius:14px;padding:12px 14px;resize:vertical;background:var(--paper)}
+.p2card textarea:focus{border-color:var(--accent-dark);outline:none;box-shadow:0 0 0 3px var(--accent-soft)}
+.wc{display:flex;justify-content:space-between;gap:10px;margin:6px 0 12px;font-weight:700;color:var(--muted)}
+.wc.okc{color:var(--ok-ink)}
+.wc.badc{color:var(--bad-ink)}
+.imgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0 0 16px}
+.imgs button{border:2px solid var(--line);border-radius:16px;overflow:hidden;padding:0;cursor:zoom-in;background:var(--paper)}
+.imgs img{display:block;width:100%;height:auto}
+dialog.zoom{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog.zoom::backdrop{background:rgba(35,26,74,.8)}
+dialog.zoom img{max-width:96vw;max-height:90vh;border-radius:16px;display:block}
+
+@media (max-width:760px){
+  html{scroll-padding-top:190px}
+  .bar{flex-wrap:wrap;gap:8px}
+  .nav{order:3;width:100%;margin-left:0;overflow-x:auto;gap:2px;padding-bottom:2px}
+  .nav button{white-space:nowrap;padding:8px 12px}
+  .bar .btn{margin-left:auto}
+  .grid{grid-template-columns:1fr}
+  .opt{grid-template-columns:auto 30px 1fr auto;padding:9px 10px}
+  .cell input{width:42px;height:48px}
+  .nums{gap:5px}
+  .num{min-width:36px;height:36px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">К содержимому</a>
+<header class="top">
+  <div class="wrap bar">
+    <button class="brand" type="button" onclick="go('home')" aria-label="На главную">
+      <img src="img/logo.jpg" alt="Логотип «Английский и котики»: белая кошка с розовым бантом обнимает Биг-Бен" width="46" height="46">
+      <span>Английский<br>и котики</span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Разделы"></nav>
+    <a class="btn accent" id="subBtn" href="#" target="_blank" rel="noopener" hidden>Подписаться</a>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <section id="screen-home"></section>
+  <section id="screen-test" hidden></section>
+  <section id="screen-part2" hidden></section>
+</main>
+<footer>
+  <div class="wrap foot" id="foot"></div>
+</footer>
+<dialog class="zoom" id="zoom" aria-label="Увеличенная картинка"><img id="zoomImg" alt=""></dialog>
+
+<script>
+/* =====================================================================
+   КОНТЕНТ. Меняйте только эти массивы, логику ниже трогать не нужно.
+   ===================================================================== */
+/* Настройки сайта. subscribeUrl: ссылка для кнопки подписки и футера (пусто — кнопка скрыта). */
+
+const SITE = {
+ "name": "Английский и котики",
+ "badge": "Уроки и входной пробник",
+ "titleBefore": "Английский для",
+ "titleAccent": "ЕГЭ",
+ "titleAfter": "",
+ "lead": "Видеоуроки, скрипты и тренировочный тест: проверяйте ответы сразу и читайте пояснения к каждому заданию.",
+ "subscribeUrl": "",
+ "subscribeText": "Подписаться",
+ "subscribeLabel": ""
+};
+
+/* Видео: theme — тема, title — подпись, url — ссылка на Kinescope (ID берётся из неё автоматически). */
+
+const VIDEOS = [
+ {
+  "theme": "Present Simple vs Present Continuous",
+  "title": "Пятиминутка",
+  "url": "https://kinescope.io/v8K5C9fko2T9zKyXRrZybp"
+ },
+ {
+  "theme": "Present Simple vs Present Continuous",
+  "title": "Основная теория",
+  "url": "https://kinescope.io/rzDduHVPbiJrr3dfG4m2Ui"
+ },
+ {
+  "theme": "Present Simple vs Present Continuous",
+  "title": "Практика ЕГЭ",
+  "url": "https://kinescope.io/6qnR9S4L42YpC7xCFNKMa4"
+ },
+ {
+  "theme": "Introductory it. There + to be",
+  "title": "Пятиминутка",
+  "url": "https://kinescope.io/xpXJLRnSpwkwiECRFo2Csq"
+ },
+ {
+  "theme": "Introductory it. There + to be",
+  "title": "Основная теория",
+  "url": "https://kinescope.io/0XwcnuTKafuc7ERx33rWeo"
+ },
+ {
+  "theme": "Разбор формата ЕГЭ. Чтение: стратегии. Решение варианта",
+  "title": "Видео семинара",
+  "url": "https://kinescope.io/w7Q8qurefpPdBDoKHHjWVs"
+ }
+];
+
+/* Материалы: kind "script" — раздел «Скрипты», "material" — раздел «Материалы». */
+
+const MATERIALS = [
+ {
+  "kind": "script",
+  "title": "Степени сравнения прилагательных: скрипт",
+  "desc": "Тетрадь с пропусками для урока.",
+  "path": "materials/stepeni-sravneniya-skript.pdf",
+  "cover": "img/cover-stepeni-sravneniya-skript.jpg",
+  "size": "18,5 МБ"
+ },
+ {
+  "kind": "script",
+  "title": "Степени сравнения в ЕГЭ: скрипт",
+  "desc": "Тетрадь с пропусками для практики ЕГЭ.",
+  "path": "materials/stepeni-sravneniya-ege-skript.pdf",
+  "cover": "img/cover-stepeni-sravneniya-ege-skript.jpg",
+  "size": "13,5 МБ"
+ },
+ {
+  "kind": "material",
+  "title": "Пробник №1. Входной: версия для печати",
+  "desc": "Все задания первой части: распечатайте и решайте на бумаге.",
+  "path": "materials/probnik-1-vhodnoj-pechat.pdf",
+  "cover": "img/cover-probnik-1-vhodnoj-pechat.jpg",
+  "size": "581 КБ"
+ },
+ {
+  "kind": "material",
+  "title": "Пробник №1. Входной: скрипт аудирования",
+  "desc": "Тексты записей к заданиям 1–9.",
+  "path": "materials/probnik-1-vhodnoj-skript-audirovaniya.pdf",
+  "cover": "img/cover-probnik-1-vhodnoj-skript-audirovaniya.jpg",
+  "size": "225 КБ"
+ }
+];
+
+/* Аудио: src — путь к mp3 (например "audio/listening-task-1.mp3"); пусто — покажется заглушка. max — сколько раз можно слушать (0 — без ограничений). */
+
+const AUDIO = [
+ {
+  "id": "a1",
+  "title": "Задание 1",
+  "src": "",
+  "max": 2,
+  "script": [
+   {
+    "who": "Speaker A",
+    "text": "If you ask me, I think going to the gym is a bad idea. You can watch numerous videos on YouTube free of charge, or you can buy discs with classes of aerobics or yoga — they are really cheap. If you are a fan of training simulators or machines — again, you can buy your favorite ones. There are some small ones and they don’t look so expensive if you compare the prices with the ones for season ticket at a gym — plus, you save time as you stay at home."
+   },
+   {
+    "who": "Speaker B",
+    "text": "If you ask me, I think everybody should attend a gym, if he or she wants to be healthy and fit. However, it’s not an easy task to choose a good gym. There are so many of them. Sorry to say, choosing a gym, many people only consider the location. That means – if it’s convenient to get there. That’s not a very wise approach. You should look for very highly qualified coaches and good training simulators, clean halls, and polite receptionists."
+   },
+   {
+    "who": "Speaker C",
+    "text": "In my opinion, it goes without saying that one should go in for sports. The question is if we can do it at home on our own, or should we attend a gym. Everybody decides for themselves, but I think it’s much better to attend a gym. Why? Well, you see — it’s not simple enough to do some exercise. It’s important to do it correctly. If you do it in the wrong way, you risk getting an injury or a trauma. A professional coach can help avoid mistakes."
+   },
+   {
+    "who": "Speaker D",
+    "text": "I know going to the gym may seem more expensive compared to working out at home, but I just can’t make myself to do any exercise at home. Every time I want to try to do some exercise, I find something else to do. There’s either a good film to see, or my mum needs help urgently, or my friends drop in unexpectedly. There is always something or somebody to prevent me from working out, or disturb me. Gyms and fitness clubs are much better."
+   },
+   {
+    "who": "Speaker E",
+    "text": "In my opinion, gyms are very dangerous places, and attending them can ruin your health. First of all, most gyms do not ask for medical permission to work out, and you may not be aware of some health problems of yours, so you risk developing one, or making the existing problem even worse. Plus, I’m not sure about the hygiene in such places – it all depends on the cleaning service, which may be unreliable. I’d rather work out at home."
+   },
+   {
+    "who": "Speaker F",
+    "text": "I find gyms and fitness clubs very nice places. First of all, they provide you with everything necessary for a work out. Secondly, there is always an instructor to help you, if you do something wrong. Thirdly, there are a lot of extra services provided, like a juice bar, shops with sports clothes or food, massage, a water zone and a sauna. And the last, but not the least, everybody likes to post his or her selfies in such places to get likes from their friends."
+   }
+  ]
+ },
+ {
+  "id": "a2",
+  "title": "Задание 2",
+  "src": "",
+  "max": 2,
+  "script": [
+   {
+    "who": "Julie",
+    "text": "Hi, Steve. How are you getting on? Are you enjoying your summer holidays?"
+   },
+   {
+    "who": "Steve",
+    "text": "Hello, Julie. It's so nice to see you. I'm okay. It's good not to have to go to school every day. No homework. Life is great."
+   },
+   {
+    "who": "Julie",
+    "text": "I can understand you. I also enjoy doing nothing. Hey, you are reading something. I hope it's not a school textbook."
+   },
+   {
+    "who": "Steve",
+    "text": "No, it isn't. It is a Harry Potter book, actually."
+   },
+   {
+    "who": "Julie",
+    "text": "Don't you think that this series of books is for kids, not a person who is to leave school in a year?"
+   },
+   {
+    "who": "Steve",
+    "text": "Well, my brother Josh has just started watching Harry Potter movies. You know, he's only seven. I'm going to have to look after him anyway, so I watched a couple of films with him and I got interested."
+   },
+   {
+    "who": "Julie",
+    "text": "Didn't you read about Harry Potter when you were younger?"
+   },
+   {
+    "who": "Steve",
+    "text": "No, I didn't. I'm probably the only person in the UK who hasn't read all the Harry Potter books."
+   },
+   {
+    "who": "Julie",
+    "text": "That's probably true. Well, have you spotted many differences between the books and the films?"
+   },
+   {
+    "who": "Steve",
+    "text": "Not really. At the same time, this is not my purpose. I just enjoy the story itself."
+   },
+   {
+    "who": "Julie",
+    "text": "Yes, the story is very positive. That's surprising indeed, considering that Joanne Rowling, you know, the lady who is the author of the Harry Potter series, well, while she was writing her first book, she was out of work, divorced and depressed. She completed her first book, but nobody wanted to publish it at first. Then she found a publishing house which agreed to publish her story."
+   },
+   {
+    "who": "Steve",
+    "text": "Yes, I've heard about that. Well, if you don't succeed at first, try and try again, right? Today she is the highest earning woman in Britain. She's also the first person ever to become a billionaire from writing books."
+   },
+   {
+    "who": "Julie",
+    "text": "That's true. The books have been translated into more than 60 languages as far as I know."
+   },
+   {
+    "who": "Steve",
+    "text": "You seem to know a lot about Joanne Rowling, don't you?"
+   },
+   {
+    "who": "Julie",
+    "text": "I actually did a school project about her."
+   },
+   {
+    "who": "Steve",
+    "text": "Oh Julie, can I please see it? I'm so interested in everything which is connected with Harry Potter now. Perhaps I'll be able to tell my brother some interesting facts about Harry Potter after reading your project paper."
+   },
+   {
+    "who": "Julie",
+    "text": "OK. Drop by in the evening and I'll give you a copy."
+   },
+   {
+    "who": "Steve",
+    "text": "Thanks Julie. You're a star."
+   },
+   {
+    "who": "Julie",
+    "text": "You're welcome, Steve."
+   }
+  ]
+ },
+ {
+  "id": "a3",
+  "title": "Задания 3–9",
+  "src": "",
+  "max": 2,
+  "script": [
+   {
+    "who": "Presenter",
+    "text": "Hello everybody. Today in the studio we have James Black, one of the most successful musicians and soundtrack writers. At 63, with a new young son, domestic bliss, and at least one blockbuster on the horizon to hit theaters soon, James is like an advertisement for a good life. Good afternoon, James."
+   },
+   {
+    "who": "James",
+    "text": "Good afternoon."
+   },
+   {
+    "who": "Presenter",
+    "text": "Our listeners are always interested in your everyday life. So, how’s your life going? How’s your family? What’s your daily life like?"
+   },
+   {
+    "who": "James",
+    "text": "Well, it’s nothing like what your listeners might expect. Usually I go to bed early because I have this young son who was born on the fourth of July this year, named Charlie, and he has a very well structured routine. In the evening, the three of us get in the bathtub at about 6:20, and then we usually order food in because our kitchen is being remodeled right now. Really, the whole house has been benefiting from our nesting instincts. In the morning I get up, feed the dog, and take it out."
+   },
+   {
+    "who": "Presenter",
+    "text": "Glossy magazines have never published photos of your house or your dog. We didn’t even know you’ve got one."
+   },
+   {
+    "who": "James",
+    "text": "We’ve got a big red haired standard poodle named Woody Allen. We call him Woody mostly."
+   },
+   {
+    "who": "Presenter",
+    "text": "Are you happy to become a father again?"
+   },
+   {
+    "who": "James",
+    "text": "Of course, Charlie is lovely. He’s got a little safe area playroom, where I just watch him play and develop. He’s starting to stand up, and has just started to say ‘daddy’ this last week. Then I sit with him on my lap and we play the piano a bit."
+   },
+   {
+    "who": "Presenter",
+    "text": "With so many things to do, and all the responsibilities of being a father, do you manage to find time for yourself?"
+   },
+   {
+    "who": "James",
+    "text": "Kind of. Being fit is really important to me. I’ve got a kind of gym here in the house, and I do my routine and try to get my twelve thousand steps. We’ve got a couple of treadmills side-by-side. Sometimes we walk around the neighborhood too with Charlie and with the dog. And that’s about it."
+   },
+   {
+    "who": "Presenter",
+    "text": "Are you currently working on anything?"
+   },
+   {
+    "who": "James",
+    "text": "I go over my new script every day. I’m working on a movie that I can’t really talk about, because they haven’t announced what it is. I mean, the people doing it, but I work on my part every day. I like, if I have enough time, not to cram anything, but just kind of touch it every day."
+   },
+   {
+    "who": "Presenter",
+    "text": "I see. I have so many questions connected with your work. When you’re playing music, do you feel like it’s a separate part of your brain? Do you do it for the audience who’s there? Do you get better every night?"
+   },
+   {
+    "who": "James",
+    "text": "I like the idea of being a student, and I play with very good musicians, so playing with them allows me to get better. My aim is to get better, but I really love it for its own sake. For me, playing is very interactive, and it’s improvisational. We really don’t rehearse as a group, but I get these great musicians and we jam and I don’t know what we’re going to play until we start to play it, and then I do a lot of talking, playing with the audience."
+   },
+   {
+    "who": "Presenter",
+    "text": "What is the busiest part of the day for you?"
+   },
+   {
+    "who": "James",
+    "text": "I generally think of it as work slash play, because it’s the work of play — it’s a play-time, and I like how time goes on set. It’s almost like time on an airplane, or something, where people are together. It’s a different, very trippy kind of time I find because you’re together and imaginary time where you’re out of time. You’re called upon to be present, and honor what can happen in a moment. And, the whole day can go like that. The whole day can be a kind of meditation."
+   },
+   {
+    "who": "Presenter",
+    "text": "Thank you, James."
+   }
+  ]
+ }
+];
+
+/* Общие тексты. {{N}} — пропуск, roots — слова в заглавных буквах. */
+
+const SRC = {
+ "aurora": {
+  "title": "Aurora",
+  "text": "The cruiser Aurora is a museum in St. Petersburg. It is a former Russian naval ship that has played an important part in the country’s history.\n\nThe Aurora was built between 1897 and 1900 at the Admiralty shipyard in St. Petersburg. The cruiser was one of the largest ships of its time. After its construction was complete, the Aurora took its place as part of the Russian 2nd Squadron in the Pacific Ocean. In May 1905, it took part in the Battle of Tsushima and was one of just a few Russian ships {{A}}. After the battle in the Baltic, it returned to St. Petersburg {{B}}.\n\nThe ship served during World War I. When it returned to St. Petersburg in 1916 for major repairs, the city was on the edge of revolution {{C}} the 1917 February Revolution. Soon the Aurora was to play a huge part in the October revolution. The ship is famous for firing the shot {{D}} the Winter Palace. Once again in 1922, the Aurora served as a training ship. During World War II, the ship’s guns were removed to use for land defense. Unfortunately, being left defenseless it was sunk in Leningrad harbour to keep it from {{E}}. The ship was brought back to the surface in 1944 and later, after extensive repairs, it was permanently anchored at the harbour and became a museum in 1957.\n\nThe Aurora is now maintained by cadets from the nearby Nakhimov Navy School. Admission is free to the public, {{F}} a small fee."
+ },
+ "russia": {
+  "title": "Challenges for foreigners in Russia",
+  "text": "If you are moving from an English-speaking country to another, some of the problems of the new location will be minimized, but moving to a foreign language country is probably one of the hardest things to do. You will probably experience culture shock and will definitely have your ups and downs. Here’s a list of challenges you can expect to run into while you adjust to Russia. Language, of course, is a no-brainer, but I couldn’t leave it off the list! I strongly advise learning at least the alphabet before coming to Russia to avoid feeling completely isolated.\n\nWhile going anywhere where you don’t speak the language can knock you down for a while, Russian is especially difficult with its complex grammar structure (cases, verb aspect, prefixes), unpredictable word stress, and difficult pronunciation (the letters ы, ь, and й always get me) ... which also means your successes will be especially triumphant!\n\nEffective communication is an essential part of our lives that we often overlook when it comes so naturally, but the first time you can’t answer a cashier’s simple question or can’t properly vent to your host family about your day, you will never underestimate the power of words again.\n\nThe second challenge is expressing emotions. Most people are familiar with the stereotype that “Russians don’t smile”. From my observation, Russians tend to show little emotion outside of home. Surrounded by strangers, often in harsh or unpleasant weather, there is no reason to emote freely. Of course, you see friends laughing and couples kissing and people arguing, but for the most part (excluding driving), emotions stay on the inside. Until you get home, when Russians are comfortable and around people they trust, passions run strong.\n\nIn the United States, the expression of our emotions tends to vary little in different circumstances, but when expressed, Russian emotions can be even stronger and perhaps even more genuine and heartfelt than Americans are used to.\n\nIn addition, if you are a foreign student in Russia, the biggest challenge is a different education system. Russian higher education is very different from that in the United States. For the most part, universities are buildings scattered throughout a city, not the centralized micro-cities that many US students are used to. Russians generally take 9 11 classes per semester that meet less frequently than American courses would, and it is not uncommon to skip a class almost entirely and just cram for the final from other students’ notes or a study guide. Professors are also less available no office hours, they don’t always give out a school e-mail address, and in general they treat students more like colleagues.\n\nIt can be a shock going from a campus plastered with student event flyers to a cluster of half- empty academic buildings, but don’t worry Russians make up for it by hosting a plethora of clubs and organizations for the city in general. Especially in St. Petersburg and Moscow there are hundreds of clubs to join from language (be a star in the English conversation club; meet other foreigners in the Russian club), sports, acting, dancing, singing, board games, movie-watching, and more! Try making some searches on the Russian social network VKontakte to start out. Going abroad for a long period of time has its difficulties no matter where you choose to go, but the better prepared you are for the challenges you’ll face in Russia, the faster you will adjust and be able to call this northern empire your second home."
+ },
+ "usa": {
+  "title": "Languages in the USA",
+  "roots": {
+   "19": "SPEAK",
+   "20": "THIS",
+   "21": "TWO"
+  },
+  "text": "The most commonly used language in the United States is English, which is the de facto national language. Nonetheless, many other languages {{19}} in the United States. {{20}} include indigenous languages, languages brought to the country by colonists, enslaved people and immigrants from Europe, Africa and Asia.\n\nSpanish, of course, is the {{21}} most commonly spoken language in the United States. However, few people realise that after English and Spanish Chinese is spoken regularly in more American homes than any other language."
+ },
+ "wand": {
+  "title": "A cleaning wand",
+  "roots": {
+   "22": "ONE",
+   "23": "GOOD",
+   "24": "WOMAN"
+  },
+  "text": "A cleaning wand is a totally new invention. It features the advanced UV-C technology that helps to kill bacteria and germs. It’s the {{22}} ever cleaning device you can literally take anywhere.\n\nThe {{23}} thing about it is that it can clean anything.\n\nThere’s no doubt that {{24}} are going to like this invention very much."
+ },
+ "vrubel": {
+  "title": "Mikhail Vrubel",
+  "roots": {
+   "25": "CHILD",
+   "26": "FORTUNATE",
+   "27": "ARTIST",
+   "28": "TEACH",
+   "29": "ILLUSTRATE"
+  },
+  "text": "Mikhail Vrubel is a renowned Russian painter who worked in almost all genres of art, including graphics and sculpture. He was born in Omsk to an ordinary family. In his early {{25}} Vrubel was very weak because of the harsh Siberian climate. {{26}}, his family moved to warmer regions, where Vrubel quickly got better.\n\nMikhail Vrubel showed his {{27}} talent at the age of 10. That is why his father hired a private {{28}} so that he could learn the advanced painting techniques. Still, after finishing school Vrubel decided to study law. While studying at university, Vrubel practised art only through making {{29}} for books."
+ },
+ "uncle": {
+  "title": "My uncle",
+  "text": "I didn’t like my uncle Conrad. When he rose in the morning, he somehow {{30}} to wake the entire household. No one complained, as he was the breadwinner in the family, and in any {{31}}, he was cheaper and more reliable than an alarm clock.\n\nThe first noise I would hear was the bedroom door slamming. This would be followed by my uncle tramping along the creaky wooden landing and down the stairs. Then another door would slam as he {{32}} into the bathroom. If anyone was still asleep, the rush of water, followed by two more slammed doors before he returned to the bedroom, served to {{33}} them that my uncle expected his breakfast to be on the table by the time he walked into the kitchen. He only had a wash and a shave on Saturday evenings before going to the cinema. He {{34}} a bath four times a year on quarter-day. No one was going to accuse him of wasting his hard-earned cash on soap.\n\nMy mum would be next up, leaping out of bed moments after the first slammed door. There would be a bowl of porridge on the stove by the time my uncle came out of the bathroom. Grandma followed shortly afterwards, and would {{35}} her daughter in the kitchen before my uncle had taken his place at the head of the table. I had to be down within 5 minutes of the first slammed door if I hoped to get any breakfast. This daily {{36}} in the household never varied."
+ }
+};
+
+/* Задания первой части. check: cells | set | choice | word. */
+
+const QUIZ = [
+ {
+  "n": "1",
+  "section": "Аудирование",
+  "label": "Аудирование · соответствие",
+  "audio": "a1",
+  "instr": "Вы услышите 6 высказываний. Установите соответствие между высказываниями каждого говорящего A–F и утверждениями, данными в списке 1–7. Используйте каждое утверждение, обозначенное соответствующей цифрой, только один раз. В задании есть одно лишнее утверждение. Вы услышите запись дважды. Занесите в ответ последовательность цифр.",
+  "list": [
+   {
+    "k": "1",
+    "t": "You must carefully choose a gym to attend."
+   },
+   {
+    "k": "2",
+    "t": "A professional instructor is too expensive at any gym."
+   },
+   {
+    "k": "3",
+    "t": "There are many pluses about attending a gym."
+   },
+   {
+    "k": "4",
+    "t": "It’s less dangerous to exercise at a gym."
+   },
+   {
+    "k": "5",
+    "t": "Going to the gym is a waste of time and money."
+   },
+   {
+    "k": "6",
+    "t": "A gym is good in terms of concentration."
+   },
+   {
+    "k": "7",
+    "t": "You have a high risk of an injury at a gym."
+   }
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F"
+  ],
+  "digits": 7,
+  "check": "cells",
+  "ans": "514673",
+  "expl": [
+   "Утверждение 5 (Going to the gym is a waste of time and money. — Посещение тренажерного зала – пустая трата времени и денег) соответствует высказыванию спикера A: «... and they don't look so expensive if you compare the prices with the ones for season tickets at a gym plus you save time as you stay at home.»",
+   "Утверждение 1 (You must carefully choose a gym to attend. — Вы должны тщательно выбирать тренажерный зал для посещения) соответствует высказыванию спикера B: «However, it's not an easy task to choose a good gym.»",
+   "Утверждение 4 (It’s less dangerous to exercise at a gym. — Заниматься в тренажерном зале менее опасно) соответствует высказыванию спикера C: «If you do it in the wrong way you risk getting an injury or trauma. The professional coach can help avoid mistakes.»",
+   "Утверждение 6 (A gym is good in terms of concentration. — Спортзал хорош с точки зрения концентрации) соответствует высказыванию спикера D: «I know that going to the gym may seem more expensive compared to working out at home but I just can't make myself do any exercise at home.»",
+   "Утверждение 7 (You have a high risk of an injury at a gym. — У вас высокий риск получить травму в тренажерном зале) соответствует высказыванию спикера E: «In my opinion, gyms are very dangerous places and attending them can ruin your health.»",
+   "Утверждение 3 (There are many pluses about attending a gym. — Есть много плюсов в посещении спортзала) соответствует высказыванию спикера F: «Gyms and fitness clubs are very nice places. First of all, they...»"
+  ]
+ },
+ {
+  "n": "2",
+  "section": "Аудирование",
+  "label": "Аудирование · True / False / Not stated",
+  "audio": "a2",
+  "instr": "Вы услышите диалог. Определите, какие из приведённых утверждений A–G соответствуют содержанию текста (1 – True), какие не соответствуют (2 – False) и о чём в тексте не сказано, то есть на основании текста нельзя дать ни положительного, ни отрицательного ответа (3 – Not stated). Занесите в ответ последовательность цифр. Вы услышите запись дважды.",
+  "list": [
+   {
+    "k": "A",
+    "t": "Julie and Steve are about to end their academic year."
+   },
+   {
+    "k": "B",
+    "t": "Steve’s brother Josh is younger than him."
+   },
+   {
+    "k": "C",
+    "t": "Steve didn’t read many books when he was a child."
+   },
+   {
+    "k": "D",
+    "t": "Steve compares Harry Potter books and films."
+   },
+   {
+    "k": "E",
+    "t": "Julie finds Harry Potter books very depressing."
+   },
+   {
+    "k": "F",
+    "t": "Steve knows about Joanne Rowling’s achievements."
+   },
+   {
+    "k": "G",
+    "t": "Julie did her project about Harry Potter a year ago."
+   }
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "digits": 3,
+  "check": "cells",
+  "ans": "2132213",
+  "expl": [
+   "Утверждение A (Julie and Steve are about to end their academic year. — Джули и Стив заканчивают учебный год) не соответствует содержанию диалога — False:\nJulie: Are you enjoying your summer holidays?\nSteve: Hello Julie. It's so nice to see you. I'm okay. It's good not to have to go to school every day. No homework, life is great.\nДжули: Тебе нравятся летние каникулы?\nСтив: Привет, Джули. Так приятно тебя видеть. Я в порядке. Хорошо, что не нужно каждый день ходить в школу. Никаких домашних заданий, жизнь прекрасна.",
+   "Утверждение B (Steve’s brother Josh is younger than him. — Брат Стива Джош младше его) соответствует содержанию диалога — True:\nSteve: Well, my brother Josh's just started watching Harry Potter movies. You know, he's only seven and I have to look after him anyway so I watched a couple of films with him and I got interested.\nСтив: Ну, мой брат Джош только начал смотреть фильмы о Гарри Поттере. Знаете, ему всего семь лет, и я все равно должен за ним присматривать, поэтому я посмотрел с ним пару фильмов, и мне стало интересно.",
+   "Утверждение C (Steve didn’t read many books when he was a child. — Стив не читал много книг в детстве) не отражено в диалоге — Not stated.",
+   "Утверждение D (Steve compares Harry Potter books and films. — Стив сравнивает книги и фильмы о Гарри Поттере) не соответствует содержанию диалога — False: «Not really. At the same time this is not my purpose. I just enjoy the story itself.» (Не совсем. В то же время это не является моей целью. Я просто наслаждаюсь самой историей.)",
+   "Утверждение E (Julie finds Harry Potter books very depressing. — Джули находит книги о Гарри Поттере очень удручающими) не отражено в диалоге — False: «Yes, the story is very positive.» (Да, история очень позитивна)",
+   "Утверждение F (Steve knows about Joanne Rowling’s achievements. — Стив знает о достижениях Джоан Роулинг) соответствует содержанию диалога — True: «That's true. The books have been translated into more than sixty languages as far as I know.» (Это правда. Насколько мне известно, книги переведены более чем на шестьдесят языков.)",
+   "Утверждение G (Julie did her project about Harry Potter a year ago. — Джули сделала свой проект о Гарри Поттере год назад) не отражено в диалоге — Not stated."
+  ]
+ },
+ {
+  "n": "3",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "Introducing James Black, the presenter stresses his …",
+  "options": [
+   "personal fulfilment.",
+   "old age.",
+   "achievements in advertising career."
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "«At 63, with a new young son, domestic bliss and at least one mega blockbuster on the horizon to hit theatre soon, James is like an advertisement for a good life.»",
+   "В самом начале ведущий подчеркивает гармонию и личную самореализацию Джеймса (*personal fulfilment / advertisement for a good life*)."
+  ]
+ },
+ {
+  "n": "4",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "Which of the following is NOT a part of James’s daily routine?",
+  "options": [
+   "Bathing his son.",
+   "Cooking dinner.",
+   "Walking the dog."
+  ],
+  "check": "choice",
+  "ans": "2",
+  "expl": [
+   "«In the evening the three of us get in the bathtub at about 6:20, and then we usually order food in because our kitchen is being remodeled right now... In the morning I get up, feed the dog and take it out.»",
+   "Джеймс купает сына и выгуливает собаку, но не готовит ужин, так как кухня на ремонте и еду заказывают на дом (*cooking dinner* — не является частью рутины)."
+  ]
+ },
+ {
+  "n": "5",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "What does James say about his baby son Charlie?",
+  "options": [
+   "He speaks fluently.",
+   "He develops very quickly.",
+   "He was born in summer."
+  ],
+  "check": "choice",
+  "ans": "3",
+  "expl": [
+   "«...I have this young son who was born on the 4th of July this year, named Charlie.»",
+   "Джеймс упоминает, что его сын Чарли родился 4 июля (*born in summer*)."
+  ]
+ },
+ {
+  "n": "6",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "What does James rely on to keep fit?",
+  "options": [
+   "Playing with the dog.",
+   "Practising in his “gym”.",
+   "Doing his routine jobs."
+  ],
+  "check": "choice",
+  "ans": "2",
+  "expl": [
+   "«I've got a kind of gym here in the house and I do my routine and try to get my 12,000 steps. We've got a couple of treadmills side-by-side.»",
+   "Для поддержания физической формы Джеймс полагается на занятия в домашнем тренажерном зале и ходьбу (*practising in his \"gym\"*)."
+  ]
+ },
+ {
+  "n": "7",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "Which of the following is TRUE about James playing music?",
+  "options": [
+   "It’s very spontaneous.",
+   "He needs many rehearsals.",
+   "He tries to please the audience."
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "«We really don't rehearse as a group, but I get these great musicians, and we jam, and I don't know what we're going to play until they start to play it.»",
+   "Музыкальная игра Джеймса и его коллектива полностью импровизационная и спонтанная (*very spontaneous / don't rehearse*)."
+  ]
+ },
+ {
+  "n": "8",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "What does James say about his musicians?",
+  "options": [
+   "They are highly professional.",
+   "They love talking with the audience.",
+   "They never know what to play."
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "«...I play with very good musicians. So playing with them allows me to get better... I get these great musicians, and we jam...»",
+   "Джеймс отмечает высочайший профессионализм и класс приглашенных музыкантов (*are highly professional / great musicians*), с которыми он играет."
+  ]
+ },
+ {
+  "n": "9",
+  "section": "Аудирование",
+  "label": "Аудирование · выбор ответа",
+  "audio": "a3",
+  "instr": "Вы услышите интервью. В заданиях выберите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "stem": "What does James say about his busiest periods?",
+  "options": [
+   "He compares them to flying an airplane.",
+   "He prefers to spend them together with other people.",
+   "He finds an element of play in them."
+  ],
+  "check": "choice",
+  "ans": "3",
+  "expl": [
+   "«I generally think of it as work/play, because it's the work of play. It's a playtime.»",
+   "Даже в самые загруженные моменты и периоды работы Джеймс находит элемент игры и развлечения (*finds an element of play in them / work/play*)."
+  ]
+ },
+ {
+  "n": "10",
+  "section": "Чтение",
+  "label": "Чтение · заголовки к текстам",
+  "instr": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите последовательность цифр в ответ. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+  "list": [
+   {
+    "k": "1",
+    "t": "Fighting without rules"
+   },
+   {
+    "k": "2",
+    "t": "A natural hunter"
+   },
+   {
+    "k": "3",
+    "t": "Home, sweet home"
+   },
+   {
+    "k": "4",
+    "t": "What's on the menu?"
+   },
+   {
+    "k": "5",
+    "t": "Unique habits"
+   },
+   {
+    "k": "6",
+    "t": "Most caring mothers"
+   },
+   {
+    "k": "7",
+    "t": "Asking for protection?"
+   },
+   {
+    "k": "8",
+    "t": "What's a kangaroo like?"
+   }
+  ],
+  "paras": [
+   {
+    "label": "A",
+    "text": "Most kangaroos live on the continent of Australia, though each species has its own favourite place for living. For example, the musky rat-kangaroo likes to nestle down in little nests on the floor of the rainforests in northeastern Queensland. Gray kangaroos like the forests of Tasmania. The antilopine kangaroo can be found in the eucalyptus woodlands of extreme northern Australia. Small tree-kangaroos live in the upper branches of trees in the rainforests of Queensland, as well as on the island of New Guinea."
+   },
+   {
+    "label": "B",
+    "text": "Kangaroos are the only large animals that hop to move around. Their springy hind legs and feet are much stronger and larger than their arms. Kangaroos can cover 7 metres in a single hop, and can hop as fast as 48 km/h. When feeding, kangaroos use a slower, walking movement, and for that they use their muscular tail, pushing off the ground as they move along. Kangaroos are social animals. They live in groups called a mob, a herd or a troop. Kangaroos in a mob will groom each other and protect each other from danger."
+   },
+   {
+    "label": "C",
+    "text": "Probably the best-known fact about kangaroos is that they carry their young in a pouch. A female kangaroo can give birth to up to four offspring at one time, though this is unusual. At birth, the baby, called a joey, can be as small as a grain of rice. When the joey is born, it is guided safely into the comfy pouch, where it develops for another 4 to 15 months. Inside the pouch, the joey is protected and fed with milk. Joeys grow quickly, and at 14 to 20 months for females, or 2 to 4 years for males, they will be fully matured."
+   },
+   {
+    "label": "D",
+    "text": "According to the Red List of Threatened Species, 16 species of tree-kangaroos and rat-kangaroos are listed as either near-threatened, threatened, vulnerable, endangered or critically endangered. The desert rat-kangaroo and the short-nosed rat-kangaroo are considered completely extinct. Current studies show that global warming could also kill off the world's smallest kangaroo. However, the four species of great kangaroos – the species that are much larger than other kangaroos – are not endangered."
+   },
+   {
+    "label": "E",
+    "text": "Kangaroos are large marsupials that are found only in Australia. They are identified by their muscular tails, strong back legs, large feet, short fur and long, pointed ears. Like all marsupials – a sub-type of mammal – females have pouches where their young live until they are old enough to emerge. According to National Geographic, the largest kangaroo, as well as the largest marsupial, is the red kangaroo. The smallest kangaroo is the musky rat-kangaroo. It is only 15 to 20 cm long, and weighs 340 grams."
+   },
+   {
+    "label": "F",
+    "text": "Kangaroos are mainly herbivores. They eat grasses, flowers, leaves, ferns, moss, and even insects. Like cows, kangaroos bring their swallowed food up again to the mouth and re-chew it before it is ready to be totally digested. Great kangaroos mainly roam forests in search of food, though they do go to open grasslands for grazing. Small species, like rat-kangaroos, eat worms, roots, and palm berries. The animal sits on its haunches while eating and finds food by digging. They are solitary, but have been seen feeding together."
+   },
+   {
+    "label": "G",
+    "text": "Large male kangaroos are powerfully built. Like many species in the wild, male kangaroos sometimes fight over potential mates. They often lean back on their sturdy tail and kick each other with their strong hind legs. Kangaroos can also bite and wield sharp claws, which they may do in battle with an enemy, such as a dingo. If a kangaroo suspects that there is some danger in the area, it will stomp its foot on the ground to alert others. If it comes to blows, a kangaroo will skilfully box and kick its opponent."
+   }
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "digits": 8,
+  "check": "cells",
+  "ans": "3567841",
+  "expl": [
+   "A → 3. Home, sweet home\nЦитата: “Most kangaroos live on the continent of Australia, though each species has its own favourite place for living.”\nПеревод: «Большинство кенгуру живут на континенте Австралия, хотя у каждого вида есть своё любимое место обитания».\nПояснение: Весь абзац описывает различные места обитания и ареалы разных видов кенгуру, то есть их «дом».",
+   "B → 5. Unique habits\nЦитата: “Kangaroos are the only large animals that hop to move around... They are one and only animals for whom hopping is primary form of movement.”\nПеревод: «Кенгуру — единственные крупные животные, которые передвигаются прыжками... Они единственные животные, для которых прыжки являются основной формой передвижения».\nПояснение: Абзац фокусируется на уникальной, отличительной черте кенгуру — передвижении прыжками, что является их характерной привычкой.",
+   "C → 6. Most caring mothers\nЦитата: “Probably the best-known fact about kangaroos is that they carry their young in a pouch. When the joey is born, it is guided safely into the comfy pouch, where it develops... Inside the pouch, the joey is protected and fed with milk.”\nПеревод: «Пожалуй, самый известный факт о кенгуру — то, что они носят своих детёнышей в сумке. Когда джоуи рождается, его безопасно помещают в удобную сумку, где он развивается... Внутри сумки джоуи защищён и вскармливается молоком».\nПояснение: Текст подробно описывает заботу самок кенгуру о своём потомстве с помощью специальной сумки, подчёркивая материнскую опеку.",
+   "D → 7. Asking for protection?\nЦитата: “According to the Red List of Threatened Species, 16 species of tree-kangaroos and rat-kangaroos are listed as either near-threatened, threatened, vulnerable, endangered or critically endangered.”\nПеревод: «Согласно Красному списку угрожаемых видов, 16 видов древесных кенгуру и крысиных кенгуру перечислены как находящиеся под угрозой, уязвимые, вымирающие или находящиеся на грани исчезновения».\nПояснение: Весь абзац говорит о том, что многие виды кенгуру находятся под угрозой исчезновения, что создаёт необходимость в их защите.",
+   "E → 8. What’s a kangaroo like?\nЦитата: “Kangaroos are large marsupials that are found only in Australia. They are identified by their muscular tails, strong back legs, large feet, short fur and long, pointed ears... the largest kangaroo... is the red kangaroo. The smallest kangaroo is the musky rat-kangaroo.”\nПеревод: «Кенгуру — это крупные сумчатые, обитающие только в Австралии. Их отличают мускулистый хвост, сильные задние ноги, большие ступни, короткая шерсть и длинные заострённые уши... самый крупный кенгуру — рыжий кенгуру. Самый маленький кенгуру — мускусный кенгуру».\nПояснение: Абзац даёт общее физическое описание кенгуру как животного, объясняя, как он выглядит и каковы его основные характеристики.",
+   "F → 4. What’s on the menu?\nЦитата: “Kangaroos are mainly herbivores. They eat grasses, flowers, leaves, ferns, moss, and even insects. Small species, like rat-kangaroos, eat worms, roots, and palm berries.”\nПеревод: «Кенгуру в основном травоядные. Они едят травы, цветы, листья, папоротники, мох и даже насекомых. Мелкие виды, например, крысиные кенгуру, едят червей, корни и ягоды пальм».\nПояснение: Текст целиком посвящён рациону питания разных видов кенгуру, отвечая на вопрос, что они едят.",
+   "G → 1. Fighting without rules\nЦитата: “Large male kangaroos are powerfully built... male kangaroos sometimes fight over potential mates. They often lean back on their sturdy tail and kick each other with their strong hind legs... If it comes to blows, a kangaroo will skilfully box and kick its opponent.”\nПеревод: «Самцы кенгуру крупного телосложения... иногда дерутся за потенциальных партнёрш. Они часто откидываются на крепкий хвост и бьют друг друга сильными задними ногами... В драке кенгуру умело боксирует и бьёт противника».\nПояснение: Абзац описывает агрессивное поведение и жестокие, напоминающие драку без правил, схватки между самцами кенгуру."
+  ]
+ },
+ {
+  "n": "11",
+  "section": "Чтение",
+  "label": "Чтение · вставка пропущенных частей",
+  "src": "aurora",
+  "instr": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите последовательность из цифр, обозначающих соответствующие части предложений, в ответ.",
+  "list": [
+   {
+    "k": "1",
+    "t": "and many crew members joined"
+   },
+   {
+    "k": "2",
+    "t": "and became a cadet training ship"
+   },
+   {
+    "k": "3",
+    "t": "that survived the intense naval battle"
+   },
+   {
+    "k": "4",
+    "t": "that signalled the prepared attack on"
+   },
+   {
+    "k": "5",
+    "t": "protecting the territory of the harbour"
+   },
+   {
+    "k": "6",
+    "t": "falling into the hands of the Germans"
+   },
+   {
+    "k": "7",
+    "t": "though a visit to the engine room carries"
+   }
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F"
+  ],
+  "digits": 7,
+  "check": "cells",
+  "ans": "321467",
+  "expl": [
+   "A → 3. that survived the intense naval battle\nВ мае 1905 года он принял участие в Цусимском сражении и был одним из немногих русских кораблей, переживших ожесточенное морское сражение.",
+   "B → 2. and became a cadet training ship\nПосле сражения на Балтике он вернулся в Санкт-Петербург и стал учебным кораблем для курсантов.",
+   "C → 1. and many crew members joined\nКогда в 1916 году он вернулся в Санкт-Петербург для капитального ремонта, город был на грани революции, и многие члены экипажа присоединились к Февральской революции 1917 года.",
+   "D → 4. that signalled the prepared attack on\nКорабль знаменит тем, что произвел выстрел, который послужил сигналом к готовящемуся нападению на Зимний дворец.",
+   "E → 6. falling into the hands of the Germans\nК сожалению, оставшись беззащитным, он был потоплен в Ленинградской гавани, чтобы не попасть в руки немцев.",
+   "F → 7.  though a visit to the engine room carries\nВ настоящее время \"Аврору\" обслуживают курсанты расположенного неподалеку Нахимовского военно-морского училища. Вход для публики бесплатный, хотя за посещение машинного отделения взимается небольшая плата."
+  ]
+ },
+ {
+  "n": "12",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "What are people sure to experience when coming to stay in a different country, according to the author?",
+  "options": [
+   "Both good and bad emotions.",
+   "Language barrier.",
+   "Confusion.",
+   "Loneliness."
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "Пояснение: В тексте сказано: «You will probably experience culture shock and will definitely have your ups and downs». Выражение ups and downs означает и хорошие, и плохие периоды, то есть как положительные, так и отрицательные эмоции. Остальные варианты (языковой барьер, растерянность, одиночество) автором как обязательные не называются."
+  ]
+ },
+ {
+  "n": "13",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "The author believes that going to a foreign country without knowing its language is ...",
+  "options": [
+   "hard.",
+   "useful.",
+   "stupid.",
+   "common."
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "Пояснение: Автор пишет: «...going anywhere where you don’t speak the language can knock you down for a while...». Knock you down означает «выбить из колеи», «сильно осложнить жизнь», то есть это трудно. Варианты «полезно», «глупо» и «обычно» не соответствуют смыслу текста."
+  ]
+ },
+ {
+  "n": "14",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "It is implied that your communication skills are ... when you live abroad.",
+  "options": [
+   "improved naturally",
+   "challenged",
+   "more effective",
+   "often ignored"
+  ],
+  "check": "choice",
+  "ans": "2",
+  "expl": [
+   "Пояснение: В тексте говорится: «...the first time you can’t answer a cashier’s simple question or can’t properly vent to your host family about your day, you will never underestimate the power of words again». Это значит, что навыки общения проверяются на прочность, сталкиваются с трудностями, то есть challenged (подвергаются испытанию). Варианты «улучшаются естественно», «более эффективны» и «часто игнорируются» не подтверждаются текстом."
+  ]
+ },
+ {
+  "n": "15",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "According to the author, expressing emotions in the Russian culture ...",
+  "options": [
+   "is untypical of many people.",
+   "differs depending on circumstances.",
+   "is forbidden in public places.",
+   "is similar to the American culture."
+  ],
+  "check": "choice",
+  "ans": "2",
+  "expl": [
+   "Пояснение: Автор отмечает, что русские сдерживают эмоции на людях, но дома, среди близких, проявляют их сильно: «...for the most part emotions stay on the inside. Until you get home... passions run strong». Также сказано, что в США выражение эмоций мало меняется в зависимости от обстоятельств, а в России — иначе. Значит, проявление эмоций зависит от ситуации. Вариант «нетипично для многих» неверен, так как эмоции всё же проявляются; «запрещено в общественных местах» — слишком категорично; «похоже на американскую культуру» — противоречит тексту."
+  ]
+ },
+ {
+  "n": "16",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "The author thinks that compared to the USA, in Russian universities ...",
+  "options": [
+   "final exams are more difficult.",
+   "education process is more centralized.",
+   "teachers are more professional.",
+   "students could disregard some classes."
+  ],
+  "check": "choice",
+  "ans": "4",
+  "expl": [
+   "Пояснение: В тексте сказано: «...it is not uncommon to skip a class almost entirely and just cram for the final from other students’ notes or a study guide». Skip a class означает пропускать занятие, то есть студенты могут игнорировать некоторые занятия. Остальные варианты (экзамены сложнее, процесс более централизован, преподаватели профессиональнее) в тексте не утверждаются."
+  ]
+ },
+ {
+  "n": "17",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "“It” in “... Russians make up for it by hosting ...” (paragraph 7) refers to the ...",
+  "options": [
+   "variety of student clubs.",
+   "social networking.",
+   "student activities.",
+   "quality of academic buildings."
+  ],
+  "check": "choice",
+  "ans": "3",
+  "expl": [
+   "Пояснение: В предыдущем предложении говорится: «It can be a shock going from a campus plastered with student event flyers to a cluster of half-empty academic buildings...». Речь идёт о разнице между насыщенной студенческой жизнью в США и менее активной университетской средой в России. Местоимение it заменяет student activities (студенческую активность/мероприятия), которую русские компенсируют клубами и организациями. Варианты «разнообразие клубов», «социальные сети» и «качество учебных зданий» не подходят по смыслу."
+  ]
+ },
+ {
+  "n": "18",
+  "section": "Чтение",
+  "label": "Чтение · выбор ответа",
+  "src": "russia",
+  "instr": "Прочитайте текст и выполните задания. В каждом задании выберите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "stem": "What is the main idea expressed in the last paragraph?",
+  "options": [
+   "The adaptation period to a foreign culture depends on an individual.",
+   "Living in Russia for a long time is rather challenging for foreigners.",
+   "The longer you stay abroad, the better prepared you become.",
+   "Preparation can smooth your adaptation period in Russia."
+  ],
+  "check": "choice",
+  "ans": "4",
+  "expl": [
+   "Пояснение: В последнем абзаце сказано: «...the better prepared you are for the challenges you’ll face in Russia, the faster you will adjust and be able to call this northern empire your second home». Это значит, что подготовка облегчает адаптацию. Вариант «период адаптации зависит от индивидуальности» не является главной мыслью; «жить в России долго довольно сложно» — лишь часть мысли; «чем дольше вы за границей, тем лучше подготовлены» — искажает смысл (речь о подготовке до отъезда, а не о длительности пребывания)."
+  ]
+ },
+ {
+  "n": "19",
+  "section": "Грамматика и лексика",
+  "label": "Грамматика · преобразование слова",
+  "src": "usa",
+  "gap": "19",
+  "instr": "Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строки так, чтобы они грамматически соответствовали содержанию. Ответ запишите большими буквами и слитно (Например, DIDNOTGO)",
+  "check": "word",
+  "ans": "ARESPOKEN",
+  "accept": [
+   "arespoken",
+   "are spoken"
+  ],
+  "expl": [
+   "\"Наиболее часто используемым языком в Соединенных Штатах является английский, который фактически является национальным языком. Тем не менее, в Соединенных Штатах говорят и на многих других языках.\" -- В данном задании используется Present Simple Passive, которое образуется как: am/is/are + V3. В предложениях страдательного залога (Passive) действие совершается над подлежащим (Языки не говорят, а являеются говоримыми)"
+  ]
+ },
+ {
+  "n": "20",
+  "section": "Грамматика и лексика",
+  "label": "Грамматика · преобразование слова",
+  "src": "usa",
+  "gap": "20",
+  "instr": "Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строки так, чтобы они грамматически соответствовали содержанию. Ответ запишите большими буквами и слитно (Например, DIDNOTGO)",
+  "check": "word",
+  "ans": "THESE",
+  "accept": [
+   "these"
+  ],
+  "expl": [
+   "\"К этим (языкам) относятся языки коренных народов, языки, привезенные в страну колонистами, порабощенными людьми и иммигрантами из Европы, Африки и Азии.\" -- Используем this (единственное число) и these (множественное число), когда говорим о вещах, которые находятся близко к нам"
+  ]
+ },
+ {
+  "n": "21",
+  "section": "Грамматика и лексика",
+  "label": "Грамматика · преобразование слова",
+  "src": "usa",
+  "gap": "21",
+  "instr": "Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строки так, чтобы они грамматически соответствовали содержанию. Ответ запишите большими буквами и слитно (Например, DIDNOTGO)",
+  "check": "word",
+  "ans": "SECOND",
+  "accept": [
+   "second"
+  ],
+  "expl": [
+   "Числительные меняются только от количественных к порядковым в ЕГЭ --> слово two меняем на second (\"второй\")"
+  ]
+ },
+ {
+  "n": "22",
+  "section": "Грамматика и лексика",
+  "label": "Грамматика · преобразование слова",
+  "src": "wand",
+  "gap": "22",
+  "instr": "Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строки так, чтобы они грамматически соответствовали содержанию. Ответ запишите большими буквами и слитно (Например, DIDNOTGO)",
+  "check": "word",
+  "ans": "FIRST",
+  "accept": [
+   "first"
+  ],
+  "expl": [
+   "Числительные меняются только от количественных к порядковым в ЕГЭ --> слово one меняем на first (\"первый\")"
+  ]
+ },
+ {
+  "n": "23",
+  "section": "Грамматика и лексика",
+  "label": "Грамматика · преобразование слова",
+  "src": "wand",
+  "gap": "23",
+  "instr": "Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строки так, чтобы они грамматически соответствовали содержанию. Ответ запишите большими буквами и слитно (Например, DIDNOTGO)",
+  "check": "word",
+  "ans": "BEST",
+  "accept": [
+   "best"
+  ],
+  "expl": [
+   "Прилагательное good - исключение, его степени сравнения: good - better - the best. Здесь в предложении видим the - значит, нужна превосходная степень"
+  ]
+ },
+ {
+  "n": "24",
+  "section": "Грамматика и лексика",
+  "label": "Грамматика · преобразование слова",
+  "src": "wand",
+  "gap": "24",
+  "instr": "Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строки так, чтобы они грамматически соответствовали содержанию. Ответ запишите большими буквами и слитно (Например, DIDNOTGO)",
+  "check": "word",
+  "ans": "WOMEN",
+  "accept": [
+   "women"
+  ],
+  "expl": [
+   "mouse - существительное, в грамматике ЕГЭ мы существительные можем только поставить в множестенное число. Большинство исчисляемых существительных образуют множественное число с помощью окончаний -s или -es, но есть исключения, вот часто встречающиеся из них:\nwoman — women\nman — men\nchild — children\ntooth — teeth\nfoot — feet\nperson — people\nleaf — leaves\nmouse — mice\ngoose — geese\nhalf — halves\nknife — knives\nwife — wives\nlife — lives"
+  ]
+ },
+ {
+  "n": "25",
+  "section": "Грамматика и лексика",
+  "label": "Словообразование · однокоренное слово",
+  "src": "vrubel",
+  "gap": "25",
+  "instr": "Образуйте от слова, напечатанного заглавными буквами в конце строки, однокоренное слово, так, чтобы оно грамматически и лексически соответствовало содержанию текста.",
+  "check": "word",
+  "ans": "CHILDHOOD",
+  "accept": [
+   "childhood"
+  ],
+  "expl": [
+   "Нужна существительная форма, обозначающая период жизни. Добавляем суффикс -hood к существительному child. Используется типичная конструкция артикль/притяжательное местоимение + прилагательное + существительное"
+  ]
+ },
+ {
+  "n": "26",
+  "section": "Грамматика и лексика",
+  "label": "Словообразование · однокоренное слово",
+  "src": "vrubel",
+  "gap": "26",
+  "instr": "Образуйте от слова, напечатанного заглавными буквами в конце строки, однокоренное слово, так, чтобы оно грамматически и лексически соответствовало содержанию текста.",
+  "check": "word",
+  "ans": "FORTUNATELY",
+  "accept": [
+   "fortunately"
+  ],
+  "expl": [
+   "Запятая указывает, что необходимо вводное слово, то есть наречие. Добавляем суффикс -ly к прилагательному fortunate."
+  ]
+ },
+ {
+  "n": "27",
+  "section": "Грамматика и лексика",
+  "label": "Словообразование · однокоренное слово",
+  "src": "vrubel",
+  "gap": "27",
+  "instr": "Образуйте от слова, напечатанного заглавными буквами в конце строки, однокоренное слово, так, чтобы оно грамматически и лексически соответствовало содержанию текста.",
+  "check": "word",
+  "ans": "ARTISTIC",
+  "accept": [
+   "artistic"
+  ],
+  "expl": [
+   "Требуется прилагательное, описывающее талант. Добавляем суффикс -ic к основе artist. Используется типичная конструкция артикль/притяжательное местоимение + прилагательное + существительное"
+  ]
+ },
+ {
+  "n": "28",
+  "section": "Грамматика и лексика",
+  "label": "Словообразование · однокоренное слово",
+  "src": "vrubel",
+  "gap": "28",
+  "instr": "Образуйте от слова, напечатанного заглавными буквами в конце строки, однокоренное слово, так, чтобы оно грамматически и лексически соответствовало содержанию текста.",
+  "check": "word",
+  "ans": "TEACHER",
+  "accept": [
+   "teacher"
+  ],
+  "expl": [
+   "Требуется существительное, обозначающее профессии/специалиста. Добавляем суффикс -er к глаголу teach. Используется типичная конструкция артикль/притяжательное местоимение + прилагательное + существительное"
+  ]
+ },
+ {
+  "n": "29",
+  "section": "Грамматика и лексика",
+  "label": "Словообразование · однокоренное слово",
+  "src": "vrubel",
+  "gap": "29",
+  "instr": "Образуйте от слова, напечатанного заглавными буквами в конце строки, однокоренное слово, так, чтобы оно грамматически и лексически соответствовало содержанию текста.",
+  "check": "word",
+  "ans": "ILLUSTRATIONS",
+  "accept": [
+   "illustrations"
+  ],
+  "expl": [
+   "Нужна мн. форма существительного — иллюстрации. Добавляем суффикс -tion к глаголу illustrate (Создавая что? Иллюстрации). Отсутствие артикля - показатель множественного числа"
+  ]
+ },
+ {
+  "n": "30",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "30",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "resulted",
+   "achieved",
+   "managed",
+   "succeeded"
+  ],
+  "check": "choice",
+  "ans": "3",
+  "expl": [
+   "1) result in smth – отразиться результатом в чем-то\n2) achieve smth – добиться чего-то\n3) manage to do smth / manage smth – справляться с чем-то; обходиться\n4) succeed in – преуспеть в чем-то"
+  ]
+ },
+ {
+  "n": "31",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "31",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "case",
+   "view",
+   "way",
+   "sense"
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "in any case – в любом случае"
+  ]
+ },
+ {
+  "n": "32",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "32",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "departed",
+   "digressed",
+   "distracted",
+   "disappeared"
+  ],
+  "check": "choice",
+  "ans": "4",
+  "expl": [
+   "to depart – уходить, отправляться из места\nto digress into – отклоняться; отходить от темы, переходя к чему-то другому\nto distract – отвлекать\nto disappear into – исчезать; уходить или скрываться внутри чего-то"
+  ]
+ },
+ {
+  "n": "33",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "33",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "review",
+   "remind",
+   "revise",
+   "remember"
+  ],
+  "check": "choice",
+  "ans": "2",
+  "expl": [
+   "1) review – вспоминать, анализировать\n2) remind smb of smth/smb – напомнить кому-то о чем-то/ком-то\n3) revise smth – пересматривать что-то\n4) remember smth – помнить что-то"
+  ]
+ },
+ {
+  "n": "34",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "34",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "took",
+   "made",
+   "kept",
+   "held"
+  ],
+  "check": "choice",
+  "ans": "1",
+  "expl": [
+   "take a bath – принимать ванну; мыться, погружаясь в воду, обычно в ванной"
+  ]
+ },
+ {
+  "n": "35",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "35",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "add",
+   "link",
+   "fit",
+   "join"
+  ],
+  "check": "choice",
+  "ans": "4",
+  "expl": [
+   "1) to add somebody – добавлять кого-то; включать в группу или список\n2) to link somebody – связывать кого-то; соединять с кем-то или чем-то\n3) to fit somebody – подходить; быть подходящим по размеру, времени или ситуации\n4) to join somebody – присоединяться к кому-то; становиться частью группы или компании"
+  ]
+ },
+ {
+  "n": "36",
+  "section": "Грамматика и лексика",
+  "label": "Лексика и грамматика · выбор ответа",
+  "src": "uncle",
+  "gap": "36",
+  "instr": "Выберите верный ответ: 1, 2, 3 или 4.",
+  "options": [
+   "plan",
+   "topic",
+   "routine",
+   "theme"
+  ],
+  "check": "choice",
+  "ans": "3",
+  "expl": [
+   "daily routine – ежедневная рутина; совокупность привычных действий и дел, выполняемых каждый день"
+  ]
+ }
+];
+
+/* Вторая часть: в материалах её нет, поэтому массив пуст (кнопка и экран скрыты). Формат — в инструкции. */
+
+const P2 = [];
+
+/* Комментарий на итоговом экране по числу баллов. */
+
+const RANGES = [
+ {
+  "from": 0,
+  "to": 22,
+  "text": "Пока много пробелов — для входного пробника это нормально. Пересмотрите видеоуроки, разберите пояснения к ошибкам и пройдите тест ещё раз."
+ },
+ {
+  "from": 23,
+  "to": 34,
+  "text": "Неплохая база. Откройте задания с ошибками, прочитайте пояснения и повторите соответствующие темы."
+ },
+ {
+  "from": 35,
+  "to": 46,
+  "text": "Хороший результат! Осталось подтянуть отдельные задания: разберите ошибки по пояснениям."
+ },
+ {
+  "from": 47,
+  "to": 58,
+  "text": "Отличный результат! Так держать."
+ }
+];
+/* ===================================================================== */
+
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function en(s){return '<span lang="en">'+esc(s)+'</span>';}
+function br(s){return esc(s).replace(/\n/g,'<br>');}
+function pl(n,a,b,c){const m=Math.abs(n)%100,k=m%10;if(m>10&&m<20)return c;if(k>1&&k<5)return b;if(k===1)return a;return c;}
+function pts(n){return n+' '+pl(n,'балл','балла','баллов');}
+function norm(s){return String(s).toLowerCase().replace(/[’‘ʼ`´]/g,"'").trim().replace(/\s+/g,' ');}
+const ICON_DL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>';
+
+/* ---------------- навигация между экранами ---------------- */
+const SCREENS=['home','test','part2'];
+function go(name,opt){
+  opt=opt||{};
+  if(name==='part2'&&!P2.length)name='home';
+  SCREENS.forEach(function(s){$('#screen-'+s).hidden=(s!==name);});
+  if(name==='home')renderHome();
+  if(name==='test')renderTest();
+  if(name==='part2')renderPart2();
+  if(!opt.pop)history.pushState({s:name},'','');
+  if(opt.scroll){const t=document.getElementById(opt.scroll);if(t)t.scrollIntoView();else window.scrollTo(0,0);}
+  else window.scrollTo(0,0);
+}
+window.addEventListener('popstate',function(e){go((e.state&&e.state.s)||'home',{pop:true});});
+function goTo(name,id){go(name,{scroll:id});}
+
+function renderChrome(){
+  const items=[];
+  if(VIDEOS.length)items.push(['Видео',"goTo('home','videos')"]);
+  if(MATERIALS.length)items.push(['Материалы',"goTo('home','materials')"]);
+  if(QUIZ.length)items.push(['Тест',"go('test')"]);
+  if(P2.length)items.push(['Вторая часть',"go('part2')"]);
+  $('#nav').innerHTML=items.map(function(i){return '<button type="button" onclick="'+i[1]+'">'+i[0]+'</button>';}).join('');
+  const sb=$('#subBtn');
+  if(SITE.subscribeUrl){sb.href=SITE.subscribeUrl;sb.textContent=SITE.subscribeText||'Подписаться';sb.hidden=false;}
+  $('#foot').innerHTML='<img src="img/logo.jpg" alt="" width="40" height="40"><span>'+esc(SITE.name)+'</span>'+
+    (SITE.subscribeUrl?'<a href="'+esc(SITE.subscribeUrl)+'" target="_blank" rel="noopener">'+esc(SITE.subscribeLabel||SITE.subscribeUrl)+'</a>':'');
+}
+
+/* ---------------- главный экран ---------------- */
+function kinescopeId(v){const m=String(v).match(/kinescope\.io\/(?:embed\/)?([A-Za-z0-9_-]+)/);return m?m[1]:String(v).trim();}
+function fileCard(f){
+  const ext=(String(f.path).match(/\.([A-Za-z0-9]+)$/)||[,''])[1].toUpperCase();
+  return '<article class="card">'+
+    (f.cover?'<img class="cover" loading="lazy" src="'+esc(f.cover)+'" alt="Обложка: '+esc(f.title)+'">':'')+
+    '<div class="cbody"><span class="ftype">'+esc(ext)+(f.size?' · '+esc(f.size):'')+'</span>'+
+    '<strong>'+esc(f.title)+'</strong>'+(f.desc?'<span class="meta">'+esc(f.desc)+'</span>':'')+
+    '<div class="actions"><a class="btn" href="'+esc(f.path)+'" download>'+ICON_DL+'Скачать</a></div></div></article>';
+}
+function renderHome(){
+  let h='';
+  h+='<section class="hero"><span class="badge">'+esc(SITE.badge)+'</span><h1>'+esc(SITE.titleBefore)+' <em>'+esc(SITE.titleAccent)+'</em>'+(SITE.titleAfter?' '+esc(SITE.titleAfter):'')+'</h1><p>'+esc(SITE.lead)+'</p><div class="chips">';
+  if(VIDEOS.length)h+='<button class="chip" type="button" onclick="goTo(\'home\',\'videos\')">Видеоуроки</button>';
+  if(MATERIALS.some(function(m){return m.kind==='script';}))h+='<button class="chip" type="button" onclick="goTo(\'home\',\'scripts\')">Скрипты</button>';
+  if(MATERIALS.some(function(m){return m.kind!=='script';}))h+='<button class="chip" type="button" onclick="goTo(\'home\',\'materials\')">Материалы</button>';
+  if(QUIZ.length)h+='<button class="chip" type="button" onclick="goTo(\'home\',\'practice\')">Практика</button>';
+  h+='</div></section>';
+
+  if(VIDEOS.length){
+    h+='<section class="sec" id="videos"><h2>Видеоуроки</h2><p class="lead">Смотрите прямо на странице или откройте видео в Kinescope.</p>';
+    const themes=[];VIDEOS.forEach(function(v){if(themes.indexOf(v.theme)<0)themes.push(v.theme);});
+    themes.forEach(function(t){
+      h+='<h3><span lang="en">'+esc(t)+'</span></h3><div class="grid">';
+      VIDEOS.filter(function(v){return v.theme===t;}).forEach(function(v){
+        const id=kinescopeId(v.url);
+        h+='<article class="card"><div class="ratio"><iframe loading="lazy" src="https://kinescope.io/embed/'+esc(id)+'" title="Видео: '+esc(v.title)+'" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; clipboard-write"></iframe></div>'+
+          '<div class="cbody"><strong>'+esc(v.title)+'</strong><div class="actions"><a href="'+esc(v.url)+'" target="_blank" rel="noopener">Открыть на Kinescope ↗</a></div></div></article>';
+      });
+      h+='</div>';
+    });
+    h+='</section>';
+  }
+  [['script','scripts','Скрипты','Тетради с пропусками: заполняйте их во время урока.'],['material','materials','Материалы','Файлы к тесту: распечатайте или откройте на телефоне.']].forEach(function(g){
+    const list=MATERIALS.filter(function(m){return (m.kind||'material')===g[0];});
+    if(!list.length)return;
+    h+='<section class="sec" id="'+g[1]+'"><h2>'+g[2]+'</h2><p class="lead">'+g[3]+'</p><div class="grid">'+list.map(fileCard).join('')+'</div></section>';
+  });
+  if(QUIZ.length||P2.length){
+    h+='<section class="sec" id="practice"><h2>Практика</h2><p class="lead">Проверьте себя: ответы и пояснения появляются сразу после проверки.</p><div class="practice">';
+    if(QUIZ.length)h+='<button class="big" type="button" onclick="go(\'test\')"><span class="t">Тест · первая часть</span><span class="s">'+QUIZ.length+' '+pl(QUIZ.length,'задание','задания','заданий')+' · максимум '+pts(maxTotal())+'</span><span class="go">Начать →</span></button>';
+    if(P2.length)h+='<button class="big" type="button" onclick="go(\'part2\')"><span class="t">Вторая часть</span><span class="s">Письмо и говорение: условие, эталон и счётчик слов</span><span class="go">Открыть →</span></button>';
+    h+='</div></section>';
+  }
+  $('#screen-home').innerHTML=h;
+}
+
+/* ---------------- тест ---------------- */
+function maxOf(q){return q.check==='cells'?q.ans.length:1;}
+function maxTotal(){return QUIZ.reduce(function(s,q){return s+maxOf(q);},0);}
+const ST={i:0,done:{},finished:false};
+const AUD={}; // состояние плееров: прослушивания считаются между заданиями
+
+function srcFirst(id){const q=QUIZ.find(function(x){return x.src===id;});return q&&q.n;}
+function tokens(text,src,cur){
+  return esc(text).replace(/\{\{(\w+)\}\}/g,function(_,k){
+    const root=src.roots&&src.roots[k];
+    const label=/^\d+$/.test(k)?k:k;
+    return '<span class="gap'+(String(cur)===k?' cur':'')+'" aria-label="пропуск '+esc(label)+'">'+esc(label)+'</span>'+(root?' <span class="root">'+esc(root)+'</span>':'');
+  });
+}
+function srcHtml(q){
+  if(!q.src)return '';
+  const s=SRC[q.src];
+  const body=s.text.split('\n\n').map(function(p){return '<p>'+tokens(p,s,q.gap)+'</p>';}).join('');
+  const inner=(s.title?'<h4>'+esc(s.title)+'</h4>':'')+'<div lang="en">'+body+'</div>';
+  if(srcFirst(q.src)===q.n)return '<div class="src">'+inner+'</div>';
+  return '<details class="src"><summary>Показать текст'+(s.title?': '+esc(s.title):'')+'</summary>'+inner+'</details>';
+}
+function listHtml(q){
+  if(!q.list)return '';
+  return '<ul class="stmts">'+q.list.map(function(it){return '<li><span class="k">'+esc(it.k)+'</span><span lang="en">'+esc(it.t)+'</span></li>';}).join('')+'</ul>';
+}
+function parasHtml(q){
+  if(!q.paras)return '';
+  return q.paras.map(function(p){return '<div class="para"><span class="k">'+esc(p.label)+'</span><p lang="en" style="margin:0">'+esc(p.text)+'</p></div>';}).join('');
+}
+function audioSlot(q){
+  if(!q.audio)return '';
+  const a=AUDIO.find(function(x){return x.id===q.audio;});
+  return '<div class="audio"><div class="slot" data-a="'+esc(a.id)+'"></div></div>';
+}
+function ensureAudio(a){
+  if(AUD[a.id])return AUD[a.id];
+  const st=AUD[a.id]={starts:0,counted:false,locked:false,el:null,note:document.createElement('p')};
+  st.note.className='note';
+  if(!a.src)return st;
+  const el=st.el=document.createElement('audio');
+  el.controls=true;el.preload='none';el.src=a.src;
+  el.setAttribute('aria-label','Аудиозапись: '+a.title);
+  function upd(){
+    if(!a.max){st.note.textContent='';return;}
+    const left=Math.max(0,a.max-st.starts);
+    st.note.textContent=st.locked?'Вы прослушали запись '+a.max+' '+pl(a.max,'раз','раза','раз')+'. Больше слушать нельзя, как на экзамене.':
+      'Запись можно прослушать '+a.max+' '+pl(a.max,'раз','раза','раз')+'. Осталось: '+left+'.';
+  }
+  function lock(){st.locked=true;el.pause();el.removeAttribute('controls');el.style.display='none';upd();}
+  el.addEventListener('play',function(){
+    if(!a.max)return;
+    if(el.currentTime<0.5&&!st.counted){
+      if(st.starts>=a.max){lock();return;}
+      st.starts++;st.counted=true;upd();
+    }
+  });
+  el.addEventListener('ended',function(){st.counted=false;if(a.max&&st.starts>=a.max)lock();});
+  upd();
+  return st;
+}
+function mountAudio(){
+  $$('.slot').forEach(function(slot){
+    const a=AUDIO.find(function(x){return x.id===slot.dataset.a;});
+    const st=ensureAudio(a);
+    if(st.el){slot.appendChild(st.el);slot.appendChild(st.note);}
+    else slot.innerHTML='<p class="ph">🎧 Аудиозапись скоро появится.</p><p class="note">Скрипт аудирования откроется после проверки задания.</p>';
+  });
+}
+function scriptHtml(q){
+  if(!q.audio)return '';
+  const a=AUDIO.find(function(x){return x.id===q.audio;});
+  if(!a.script||!a.script.length)return '';
+  return '<details class="script"><summary>Скрипт аудирования</summary>'+a.script.map(function(l){return '<p><b lang="en">'+esc(l.who)+':</b> <span lang="en">'+esc(l.text)+'</span></p>';}).join('')+'</details>';
+}
+
+function answerArea(q,res){
+  const done=!!res;
+  if(q.check==='cells'){
+    let h='<div class="cells" role="group" aria-label="Ответ">';
+    for(let k=0;k<q.ans.length;k++){
+      const lab=q.labels?q.labels[k]:String(k+1);
+      let cls='',val='',fix='';
+      if(done){val=res.user[k]||'';const ok=val===q.ans[k];cls=ok?' ok':' bad';fix=ok?'✓':'✗ '+q.ans[k];}
+      h+='<div class="cell'+cls+'"><span class="lab">'+esc(lab)+'</span><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Ответ '+esc(lab)+'" data-k="'+k+'" value="'+esc(val)+'"'+(done?' disabled':'')+'><span class="fix">'+esc(fix)+'</span></div>';
+    }
+    return h+'</div>';
+  }
+  if(q.check==='set'){
+    return '<input class="wordin'+(done?(res.ok?' ok':' bad'):'')+'" id="setin" style="text-transform:none" inputmode="numeric" autocomplete="off" aria-label="Ответ: цифры" placeholder="Цифры, например 135"'+(done?' value="'+esc(res.user)+'" disabled':'')+'>';
+  }
+  if(q.check==='choice'){
+    let h='<div class="opts" role="radiogroup" aria-label="Варианты ответа">';
+    q.options.forEach(function(t,k){
+      const key=String(k+1);let cls='';
+      if(done){if(key===q.ans)cls=' ok';else if(key===res.user)cls=' bad';}
+      h+='<label class="opt'+cls+'"><input type="radio" name="opt" value="'+key+'"'+(done?' disabled':'')+(done&&res.user===key?' checked':'')+'><span class="k">'+key+'</span><span lang="en">'+esc(t)+'</span><span class="sr">'+(done&&key===q.ans?'верный ответ':'')+'</span></label>';
+    });
+    return h+'</div>';
+  }
+  if(q.check==='word'){
+    return '<input class="wordin'+(done?(res.ok?' ok':' bad'):'')+'" id="wordin" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Ответ для пропуска '+esc(q.gap||q.n)+'" placeholder="Введите слово"'+(done?' value="'+esc(res.user)+'" disabled':'')+'>'+
+      (done?'':'<p class="hint">Пишите слитно, как в бланке ЕГЭ.</p>');
+  }
+  return '';
+}
+function verdictHtml(q,res){
+  const m=maxOf(q);
+  const ok=res.pts===m;
+  let h='<div class="verdict '+(ok?'ok':'bad')+'" role="status"><span class="ic" aria-hidden="true">'+(ok?'✓':'✗')+'</span><span>'+(ok?'Верно! ':'Неверно. ')+
+    (m>1?'Правильных ответов: '+res.pts+' из '+m+'. ':'')+'+'+pts(res.pts)+'</span></div>';
+  if(!ok||res.note){
+    if(q.check==='cells'){h+='<p class="right">Правильный ответ: '+q.ans.split('').map(function(d,k){return '<span class="pair">'+esc(q.labels?q.labels[k]:k+1)+' → '+d+'</span>';}).join('')+'</p>';}
+    else if(q.check==='set')h+='<p class="right">Правильный ответ: <span class="pair">'+esc(q.ans)+'</span></p>';
+    else if(q.check==='choice')h+='<p class="right">Правильный ответ: <span class="pair">'+q.ans+'</span> '+en(q.options[+q.ans-1])+'</p>';
+    else if(q.check==='word')h+='<p class="right">Правильный ответ: <span class="pair" lang="en">'+esc(q.ans)+'</span></p>';
+  }
+  if(res.note)h+='<p class="hint">'+esc(res.note)+'</p>';
+  return h;
+}
+function sectionOf(q){return q.section;}
+
+function renderTest(){
+  const root=$('#screen-test');
+  if(ST.finished){renderFinal(root);return;}
+  const q=QUIZ[ST.i],res=ST.done[q.n];
+  const answered=Object.keys(ST.done).length;
+  const score=Object.keys(ST.done).reduce(function(s,k){return s+ST.done[k].pts;},0);
+  let h='<div class="tbar"><div class="trow"><span>Задание '+(ST.i+1)+' из '+QUIZ.length+'</span><span class="score">Баллы: <b>'+score+'</b> из '+maxTotal()+'</span></div>'+
+    '<div class="bar-out" role="progressbar" aria-valuemin="0" aria-valuemax="'+QUIZ.length+'" aria-valuenow="'+answered+'" aria-label="Прогресс"><div class="bar-in" style="width:'+Math.round(answered/QUIZ.length*100)+'%"></div></div>'+gridHtml()+'</div>';
+  h+='<div class="q'+(res?' locked':'')+'" id="qcard"><div class="qhead"><span class="qn">№ '+esc(q.n)+'</span><span class="qtype'+(q.practice?' prac':'')+'">'+esc(q.label)+(q.practice?' · практика':'')+'</span></div>';
+  if(q.instr)h+='<p class="instr">'+esc(q.instr)+'</p>';
+  h+=audioSlot(q);
+  h+=listHtml(q)+parasHtml(q)+srcHtml(q);
+  if(q.stem)h+='<p class="stem" lang="en">'+esc(q.stem)+'</p>';
+  h+=answerArea(q,res);
+  if(res){
+    h+=verdictHtml(q,res);
+    if(q.expl&&q.expl.length)h+='<div class="expl"><h4>Пояснение</h4>'+q.expl.map(function(p){return '<p>'+br(p)+'</p>';}).join('')+'</div>';
+    h+=scriptHtml(q);
+  }else{
+    h+='<p class="warn" id="warn" role="alert"></p><button class="btn" type="button" id="checkBtn">Проверить</button>';
+  }
+  h+='<div class="nav2"><button class="btn soft" type="button" id="prevBtn"'+(ST.i===0?' disabled':'')+'>← Назад</button><button class="btn '+(ST.i===QUIZ.length-1?'accent':'soft')+'" type="button" id="nextBtn">'+(ST.i===QUIZ.length-1?'Завершить':'Дальше →')+'</button></div></div>';
+  root.innerHTML=h;
+  mountAudio();
+  bindTest(q,res);
+}
+function gridHtml(){
+  return '<div class="nums" role="group" aria-label="Номера заданий">'+QUIZ.map(function(q,k){
+    const r=ST.done[q.n];
+    const cls=(k===ST.i&&!ST.finished?' cur':'')+(r?(r.pts===maxOf(q)?' ok':' bad'):'');
+    const st=r?(r.pts===maxOf(q)?', верно':', неверно'):'';
+    return '<button type="button" class="num'+cls+'" data-i="'+k+'" aria-label="Задание '+esc(q.n)+st+'"'+(k===ST.i&&!ST.finished?' aria-current="step"':'')+'>'+esc(q.n)+'</button>';
+  }).join('')+'</div>';
+}
+function bindTest(q,res){
+  $$('.num',$('#screen-test')).forEach(function(b){b.onclick=function(){ST.finished=false;ST.i=+b.dataset.i;renderTest();window.scrollTo(0,0);};});
+  $('#prevBtn').onclick=function(){if(ST.i>0){ST.i--;renderTest();window.scrollTo(0,0);}};
+  $('#nextBtn').onclick=function(){
+    if(ST.i<QUIZ.length-1){ST.i++;renderTest();window.scrollTo(0,0);return;}
+    const left=QUIZ.length-Object.keys(ST.done).length;
+    if(left&&!confirm('Без ответа осталось '+left+' '+pl(left,'задание','задания','заданий')+'. Завершить тест?'))return;
+    ST.finished=true;renderTest();window.scrollTo(0,0);
+  };
+  if(res)return;
+  $('#checkBtn').onclick=function(){checkQ(q);};
+  const cells=$$('.cell input',$('#qcard'));
+  cells.forEach(function(inp,k){
+    inp.addEventListener('input',function(){
+      const v=inp.value.replace(/\D/g,'').slice(-1);
+      inp.value=(v&&+v>=1&&+v<=(q.digits||9))?v:'';
+      if(inp.value&&cells[k+1])cells[k+1].focus();
+    });
+    inp.addEventListener('keydown',function(e){
+      if(e.key==='Backspace'&&!inp.value&&cells[k-1]){e.preventDefault();cells[k-1].value='';cells[k-1].focus();}
+      else if(e.key==='ArrowLeft'&&cells[k-1])cells[k-1].focus();
+      else if(e.key==='ArrowRight'&&cells[k+1])cells[k+1].focus();
+    });
+    inp.addEventListener('focus',function(){inp.select();});
+  });
+  if(cells[0]&&!q.audio)cells[0].focus({preventScroll:true});
+  $$('.opt input',$('#qcard')).forEach(function(r){r.addEventListener('change',function(){$$('.opt',$('#qcard')).forEach(function(o){o.classList.toggle('sel',$('input',o).checked);});});});
+  $('#qcard').addEventListener('keydown',function(e){
+    if(e.key==='Enter'&&(e.target.tagName==='INPUT')){e.preventDefault();checkQ(q);}
+  });
+}
+function checkQ(q){
+  if(ST.done[q.n])return;
+  const warn=$('#warn');let user,pt=0,note='';
+  if(q.check==='cells'){
+    const vals=$$('.cell input',$('#qcard')).map(function(i){return i.value;});
+    if(vals.some(function(v){return !v;})){warn.textContent='Заполните все клетки.';return;}
+    user=vals;vals.forEach(function(v,k){if(v===q.ans[k])pt++;});
+  }else if(q.check==='set'){
+    user=$('#setin').value.trim();if(!user){warn.textContent='Введите цифры.';return;}
+    const a=Array.from(new Set(user.replace(/\D/g,'').split(''))).sort().join('');
+    const b=Array.from(new Set(q.ans.split(''))).sort().join('');
+    pt=a===b?1:0;
+  }else if(q.check==='choice'){
+    const c=$('.opt input:checked',$('#qcard'));
+    if(!c){warn.textContent='Выберите вариант ответа.';return;}
+    user=c.value;pt=user===q.ans?1:0;
+  }else if(q.check==='word'){
+    user=$('#wordin').value;const n=norm(user);
+    if(!n){warn.textContent='Введите слово.';return;}
+    const acc=(q.accept||[q.ans]).map(norm);
+    pt=acc.indexOf(n)>=0?1:0;
+    if(pt&&/\s/.test(n)&&!/\s/.test(q.ans))note='Засчитано, но в бланке ЕГЭ пишите слитно: '+q.ans+'.';
+  }
+  ST.done[q.n]={user:user,pts:pt,ok:pt===maxOf(q),note:note};
+  renderTest();
+  const v=$('.verdict');if(v)v.scrollIntoView({block:'center'});
+}
+function comment(p){
+  const r=RANGES.find(function(x){return p>=x.from&&p<=x.to;})||RANGES[RANGES.length-1];
+  return r.text;
+}
+function renderFinal(root){
+  const score=Object.keys(ST.done).reduce(function(s,k){return s+ST.done[k].pts;},0),mx=maxTotal();
+  const secs=[];QUIZ.forEach(function(q){let s=secs.find(function(x){return x.name===q.section;});if(!s){s={name:q.section,p:0,m:0};secs.push(s);}s.m+=maxOf(q);if(ST.done[q.n])s.p+=ST.done[q.n].pts;});
+  root.innerHTML='<div class="final"><span class="badge">Результат</span><div class="pts">'+score+' <small>из '+mx+'</small></div>'+
+    '<p class="cmt">'+esc(comment(score))+'</p>'+
+    '<div class="secs">'+secs.map(function(s){return '<div class="r"><span>'+esc(s.name)+'</span><span>'+s.p+' / '+s.m+'</span><div class="bar-out" aria-hidden="true"><div class="bar-in" style="width:'+Math.round(s.p/s.m*100)+'%"></div></div></div>';}).join('')+'</div>'+
+    gridHtml()+
+    '<div class="row"><button class="btn" type="button" id="again">Пройти заново</button>'+(P2.length?'<button class="btn accent" type="button" id="toP2">Вторая часть</button>':'')+'<button class="btn soft" type="button" id="toHome">На главную</button></div></div>';
+  $$('.num',root).forEach(function(b){b.onclick=function(){ST.finished=false;ST.i=+b.dataset.i;renderTest();window.scrollTo(0,0);};});
+  $('#again').onclick=function(){ST.i=0;ST.done={};ST.finished=false;Object.keys(AUD).forEach(function(k){delete AUD[k];});renderTest();window.scrollTo(0,0);};
+  if(P2.length)$('#toP2').onclick=function(){go('part2');};
+  $('#toHome').onclick=function(){go('home');};
+}
+
+/* ---------------- вторая часть ---------------- */
+const zoom=$('#zoom');
+zoom.addEventListener('click',function(){zoom.close();});
+function renderPart2(){
+  const root=$('#screen-part2');
+  let h='<section class="hero"><span class="badge">Вторая часть</span><h1>Письмо и <em>говорение</em></h1><p>Сначала выполните задание сами, потом сравните с эталоном.</p></section>';
+  P2.forEach(function(t,k){
+    h+='<article class="p2card" data-k="'+k+'"><div class="qhead"><span class="qn">'+esc(t.num||('№ '+(k+1)))+'</span><span class="qtype">'+esc(t.label||'')+'</span></div>';
+    if(t.instr)h+='<p class="instr">'+esc(t.instr)+'</p>';
+    if(t.q)h+='<p class="stem" lang="en">'+esc(t.q)+'</p>';
+    if(t.source){
+      const first=P2.findIndex(function(x){return x.source===t.source;})===k;
+      const body='<div lang="en">'+esc(t.source).split('\n\n').map(function(p){return '<p>'+p+'</p>';}).join('')+'</div>';
+      h+=first?'<div class="src">'+body+'</div>':'<details class="src"><summary>Показать текст</summary>'+body+'</details>';
+    }
+    if(t.images&&t.images.length)h+='<div class="imgs">'+t.images.map(function(im){return '<button type="button" data-zoom="'+esc(im.src)+'" data-alt="'+esc(im.alt)+'" aria-label="Увеличить: '+esc(im.alt)+'"><img loading="lazy" src="'+esc(im.src)+'" alt="'+esc(im.alt)+'"></button>';}).join('')+'</div>';
+    if(t.plan&&t.plan.length)h+='<div class="expl"><h4>План ответа</h4>'+t.plan.map(function(p){return '<p lang="en">'+esc(p)+'</p>';}).join('')+'</div>';
+    if(t.kind==='writing'){
+      h+='<label class="sr" for="ta'+k+'">Ваш ответ</label><textarea id="ta'+k+'" lang="en" placeholder="Напишите ответ здесь"></textarea><div class="wc" data-min="'+(t.min||0)+'" data-max="'+(t.max||0)+'"><span class="cnt">Слов: 0</span><span>'+(t.min?'нужно '+t.min+(t.max?'–'+t.max:'+'):'')+'</span></div>';
+    }
+    if(t.sample)h+='<button class="btn soft tog" type="button" aria-expanded="false">Посмотреть ответ</button><div class="expl samp" hidden style="margin-top:12px"><h4>Эталон</h4>'+esc(t.sample).split('\n\n').map(function(p){return '<p lang="en">'+p+'</p>';}).join('')+'</div>';
+    h+='</article>';
+  });
+  root.innerHTML=h;
+  $$('textarea',root).forEach(function(ta){
+    const wc=ta.parentNode.querySelector('.wc');
+    ta.addEventListener('input',function(){
+      const n=(ta.value.trim().match(/\S+/g)||[]).length,mn=+wc.dataset.min,mx=+wc.dataset.max;
+      wc.querySelector('.cnt').textContent='Слов: '+n;
+      wc.className='wc'+(n&&mn?((n>=mn&&(!mx||n<=mx*1.1))?' okc':' badc'):'');
+    });
+  });
+  $$('.tog',root).forEach(function(b){b.onclick=function(){
+    const s=b.parentNode.querySelector('.samp'),open=s.hidden;s.hidden=!open;
+    b.textContent=open?'Скрыть ответ':'Посмотреть ответ';b.setAttribute('aria-expanded',open);
+  };});
+  $$('[data-zoom]',root).forEach(function(b){b.onclick=function(){$('#zoomImg').src=b.dataset.zoom;$('#zoomImg').alt=b.dataset.alt;zoom.showModal();};});
+}
+
+renderChrome();
+document.title=SITE.name+' · ЕГЭ';
+history.replaceState({s:'home'},'','');
+go('home',{pop:true});
+</script>
+</body>
+</html>
